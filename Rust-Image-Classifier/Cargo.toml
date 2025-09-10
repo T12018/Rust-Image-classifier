@@ -1,0 +1,20 @@
+[package]
+name = "custom-image-dataset"
+version = "0.1.0"
+edition = "2024"
+description = "Example implementation for loading a custom image dataset from disk"
+license = "MIT OR Apache-2.0"
+publish = false
+
+[features]
+default = ["burn/std", "burn/tui"]
+tch-gpu = ["burn/tch"]
+wgpu = ["burn/wgpu", "burn/fusion"]
+metal = ["burn/metal", "burn/fusion"]
+
+[dependencies]
+burn = { version = "0.18", features = ["train", "vision", "network"], default-features = false }
+flate2 = "1"
+tar = "0.4"
+image = { version = "0.25", default-features = false, features = ["jpeg", "png"] }
+directories = "6.0.0"
